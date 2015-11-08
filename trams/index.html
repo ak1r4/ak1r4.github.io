@@ -3,18 +3,20 @@
 		<script type="text/javascript" src="/trams/sha.js"></script>
 	</head>
 	<body>
-		<input id="name" type="text" />
+		<input id="a" type="password" />
+		<input id="b" type="password" />
 		<p id="result"></p>
 		<script type="text/javascript">
 			function get_result() {
-				var name = document.getElementById("name").value;
-				if (name != "") {
-					var shaObj = new jsSHA("SHA-512", "TEXT");
-					shaObj.update(name + "-" + "name");
-					document.getElementById("result").textContent = shaObj.getHash("B64");
-				}
+				var a = document.getElementById("a").value;
+				var b = document.getElementById("b").value;
+				var shaObj = new jsSHA("SHA-512", "TEXT");
+
+				shaObj.update(b + "-" + a);
+				document.getElementById("result").innerHTML = shaObj.getHash("B64");
 			}
-			document.getElementById("name").onkeyup = get_result;
+			document.getElementById("a").onkeyup = get_result;
+			document.getElementById("b").onkeyup = get_result;
 		</script>
 	</body>
 </html>
