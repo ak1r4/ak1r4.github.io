@@ -1,1 +1,20 @@
-trams
+<html>
+	<head>
+		<script type="text/javascript" src="/trams/sha.js"></script>
+	</head>
+	<body>
+		<input id="name" type="text" />
+		<p id="result"></p>
+		<script type="text/javascript">
+			function get_result() {
+				var name = document.getElementById("name").value;
+				if (name != "") {
+					var shaObj = new jsSHA("SHA-512", "TEXT");
+					shaObj.update(name + "-" + "name");
+					document.getElementById("result").textContent = shaObj.getHash("B64");
+				}
+			}
+			document.getElementById("name").onkeyup = get_result;
+		</script>
+	</body>
+</html>
