@@ -15,7 +15,7 @@
 				for (var i = 0; i < children.length; i++) {
 					parts.push(children[i].value);
 				}
-				shaObj.update(parts.join("-"));
+				shaObj.update(parts.join("+"));
 
 				document.getElementById("result").innerHTML = shaObj.getHash("B64");
 				e.stopPropagation();
